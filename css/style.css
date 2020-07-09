@@ -339,7 +339,7 @@ body .h2 {
   text-transform: none;
   letter-spacing: normal;
   font-weight: bold;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 body h3 {
   color: #111;
@@ -1040,7 +1040,7 @@ body {
   margin-right: 16px;
   min-width: 100px;
   color: #666;
-  font-size: 18px;
+  font-size: 16px;
 }
 @media (min-width: 480px) {
   .post-list .post-item {
@@ -1216,7 +1216,7 @@ article .content .caption {
   margin-right: 16px;
   min-width: 100px;
   color: #666;
-  font-size: 18px;
+  font-size: 16px;
 }
 @media (min-width: 480px) {
   #archive .post-list .post-item {
