@@ -322,7 +322,15 @@ GIFEncoder = function() {
 		    var g = colorTab[transIndex*3+1];
 		    var b = colorTab[transIndex*3+2];
 		    var trans_indices = [];
-		    for (var i=0; i<colortab.length; i+="3)" {="" var="" index="i" 3;="" if="" (!usedentry[index])="" continue;="" (colortab[i]="=" r="" &&="" colortab[i+1]="=" g="" colortab[i+2]="=" b)="" trans_indices.push(index);="" }="" for="" (var="" i="0;" i<indexedpixels.length;="" i++)="" (trans_indices.indexof(indexedpixels[i])="">= 0)
+		    for (var i=0; i<colorTab.length; i+=3)
+		    {
+		        var index = i / 3;
+		        if (!usedEntry[index]) continue;
+		        if (colorTab[i] == r && colorTab[i+1] == g && colorTab[i+2] == b)
+		            trans_indices.push(index);
+		    }
+		    for (var i=0; i<indexedPixels.length; i++)
+		        if (trans_indices.indexOf(indexedPixels[i]) >= 0)
 		            indexedPixels[i] = transIndex;
 		}
 	};
@@ -401,7 +409,104 @@ GIFEncoder = function() {
 		if (dispose >= 0) {
 			disp = dispose & 7; // user override
 		}
-		disp <<= 0="" 1="" 2="" 3="" 5="" 7="" 8="" 100="" 2;="" packed="" fields="" out.writebyte(0="" |="" 1:3="" reserved="" disp="" 4:6="" disposal="" user="" input="" -="" transp);="" transparency="" flag="" writeshort(delay);="" delay="" x="" sec="" out.writebyte(transindex);="" transparent="" color="" index="" out.writebyte(0);="" block="" terminator="" };="" **="" *="" writes="" comment="" extention="" var="" writecommentext="function" writecommentext()="" {="" out.writebyte(0x21);="" extension="" introducer="" out.writebyte(0xfe);="" label="" out.writebyte(comment.length);="" size="" (s)="" out.writeutfbytes(comment);="" image="" descriptor="" writeimagedesc="function" writeimagedesc()="" out.writebyte(0x2c);="" separator="" writeshort(0);="" position="" x,y="0,0" writeshort(width);="" writeshort(height);="" if="" (firstframe)="" no="" lct="" gct="" is="" used="" for="" first="" (or="" only)="" frame="" }="" else="" specify="" normal="" out.writebyte(0x80="" local="" table="" interlace="" sorted="" 4-5="" palsize);="" 6-8="" of="" logical="" screen="" writelsd="function" writelsd()="" out.writebyte((0x80="" :="" global="" (gct="" used)="" 0x70="" 2-4="" resolution="7" 0x00="" sort="" palsize));="" background="" pixel="" aspect="" ratio="" assume="" 1:1="" netscape="" application="" to="" define="" repeat="" count.="" writenetscapeext="function" writenetscapeext()="" out.writebyte(0xff);="" app="" out.writebyte(11);="" out.writeutfbytes("netscape"="" +="" "2.0");="" id="" auth="" code="" out.writebyte(3);="" sub-block="" out.writebyte(1);="" loop writeshort(repeat);="" count="" (extra="" iterations,="" forever)="" writepalette="function" writepalette()="" out.writebytes(colortab);="" n="(3" 256)="" colortab.length;="" (var="" i="0;" <="" n;="" i++)="" writeshort="function" writeshort(pvalue)="" out.writebyte(pvalue="" &="" 0xff);="" out.writebyte((pvalue="">> 8) & 0xFF);
+		disp <<= 2;
+		// packed fields
+		out.writeByte(0 | // 1:3 reserved
+			disp | // 4:6 disposal
+			0 | // 7 user input - 0 = none
+			transp); // 8 transparency flag
+
+		WriteShort(delay); // delay x 1/100 sec
+		out.writeByte(transIndex); // transparent color index
+		out.writeByte(0); // block terminator
+	};
+
+	/**
+	 * Writes Comment Extention
+	 */
+
+	var writeCommentExt = function writeCommentExt() {
+		out.writeByte(0x21); // extension introducer
+		out.writeByte(0xfe); // comment label
+		out.writeByte(comment.length); // Block Size (s)
+		out.writeUTFBytes(comment);
+		out.writeByte(0); // block terminator
+	};
+
+
+	/**
+	 * Writes Image Descriptor
+	 */
+
+	var writeImageDesc = function writeImageDesc() {
+
+		out.writeByte(0x2c); // image separator
+		WriteShort(0); // image position x,y = 0,0
+		WriteShort(0);
+		WriteShort(width); // image size
+		WriteShort(height);
+
+		// packed fields
+		if (firstFrame) {
+			// no LCT - GCT is used for first (or only) frame
+			out.writeByte(0);
+		} else {
+			// specify normal LCT
+			out.writeByte(0x80 | // 1 local color table 1=yes
+				0 | // 2 interlace - 0=no
+				0 | // 3 sorted - 0=no
+				0 | // 4-5 reserved
+				palSize); // 6-8 size of color table
+		}
+	};
+
+	/**
+	 * Writes Logical Screen Descriptor
+	 */
+
+	var writeLSD = function writeLSD() {
+
+		// logical screen size
+		WriteShort(width);
+		WriteShort(height);
+		// packed fields
+		out.writeByte((0x80 | // 1 : global color table flag = 1 (gct used)
+			0x70 | // 2-4 : color resolution = 7
+			0x00 | // 5 : gct sort flag = 0
+			palSize)); // 6-8 : gct size
+
+		out.writeByte(0); // background color index
+		out.writeByte(0); // pixel aspect ratio - assume 1:1
+	};
+
+	/**
+	 * Writes Netscape application extension to define repeat count.
+	 */
+
+	var writeNetscapeExt = function writeNetscapeExt() {
+		out.writeByte(0x21); // extension introducer
+		out.writeByte(0xff); // app extension label
+		out.writeByte(11); // block size
+		out.writeUTFBytes("NETSCAPE" + "2.0"); // app id + auth code
+		out.writeByte(3); // sub-block size
+		out.writeByte(1); // loop sub-block id
+		WriteShort(repeat); // loop count (extra iterations, 0=repeat forever)
+		out.writeByte(0); // block terminator
+	};
+
+	/**
+	 * Writes color table
+	 */
+
+	var writePalette = function writePalette() {
+		out.writeBytes(colorTab);
+		var n = (3 * 256) - colorTab.length;
+		for (var i = 0; i < n; i++) out.writeByte(0);
+	};
+
+	var WriteShort = function WriteShort(pValue) {
+		out.writeByte(pValue & 0xFF);
+		out.writeByte((pValue >> 8) & 0xFF);
 	};
 
 	/**
@@ -428,4 +533,4 @@ GIFEncoder = function() {
 
 	return exports;
 
-};</=></colortab.length;>
+};

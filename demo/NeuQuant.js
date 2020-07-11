@@ -245,7 +245,36 @@ NeuQuant = function() {
 		radius = initradius;
 
 		rad = radius >> radiusbiasshift;
-		if (rad <= 1)="" rad="0;" for="" (i="0;" i="" <="" rad;="" i++)="" radpower[i]="alpha" *="" (((rad="" -="" i)="" radbias)="" (rad="" rad));="" if="" (lengthcount="" minpicturebytes)="" step="3;" else="" ((lengthcount="" %="" prime1)="" !="=" 0)="" prime1;="" {="" prime2)="" prime2;="" prime3)="" prime3;="" prime4;="" }="" while="" samplepixels)="" b="(p[pix" +="" 0]="" &="" 0xff)="" <<="" netbiasshift;="" g="(p[pix" 1]="" r="(p[pix" 2]="" j="contest(b," g,="" r);="" altersingle(alpha,="" j,="" b,="" alterneigh(rad,="" alter="" neighbours="" pix="" (pix="">= lim) pix -= lengthcount;
+		if (rad <= 1) rad = 0;
+
+		for (i = 0; i < rad; i++) radpower[i] = alpha * (((rad * rad - i * i) * radbias) / (rad * rad));
+
+		if (lengthcount < minpicturebytes) step = 3;
+
+		else if ((lengthcount % prime1) !== 0) step = 3 * prime1;
+
+		else {
+
+			if ((lengthcount % prime2) !== 0) step = 3 * prime2;
+			else {
+				if ((lengthcount % prime3) !== 0) step = 3 * prime3;
+				else step = 3 * prime4;
+			}
+		}
+
+		i = 0;
+		while (i < samplepixels) {
+
+			b = (p[pix + 0] & 0xff) << netbiasshift;
+			g = (p[pix + 1] & 0xff) << netbiasshift;
+			r = (p[pix + 2] & 0xff) << netbiasshift;
+			j = contest(b, g, r);
+
+			altersingle(alpha, j, b, g, r);
+			if (rad !== 0) alterneigh(rad, j, b, g, r); /* alter neighbours */
+
+			pix += step;
+			if (pix >= lim) pix -= lengthcount;
 
 			i++;
 
@@ -256,7 +285,35 @@ NeuQuant = function() {
 				radius -= radius / radiusdec;
 				rad = radius >> radiusbiasshift;
 
-				if (rad <= 1)="" rad="0;" for="" (j="0;" j="" <="" rad;="" j++)="" radpower[j]="alpha" *="" (((rad="" -="" j)="" radbias)="" (rad="" rad));="" }="" };="" **="" search="" bgr="" values="" 0..255="" (after="" net="" is="" unbiased)="" and="" return="" colour="" index="" ----------------------------------------------------------------------------="" var="" map="exports.map" =="" function="" map(b,="" g,="" r)="" {="" i;="" j;="" dist;="" a;="" bestd;="" p;="" best;="" bestd="1000;" biggest="" possible="" dist="" 256*3="" best="-1;" i="netindex[g];" on="" g="" 1;="" start="" at="" netindex[g]="" work="" outwards="" while="" ((i="" netsize)="" ||="">= 0)) {
+				if (rad <= 1) rad = 0;
+
+				for (j = 0; j < rad; j++) radpower[j] = alpha * (((rad * rad - j * j) * radbias) / (rad * rad));
+			}
+		}
+	};
+
+	/*
+	 ** Search for BGR values 0..255 (after net is unbiased) and return colour
+	 * index
+	 * ----------------------------------------------------------------------------
+	 */
+
+	var map = exports.map = function map(b, g, r) {
+
+		var i;
+		var j;
+		var dist;
+		var a;
+		var bestd;
+		var p;
+		var best;
+
+		bestd = 1000; /* biggest possible dist is 256*3 */
+		best = -1;
+		i = netindex[g]; /* index on g */
+		j = i - 1; /* start at netindex[g] and work outwards */
+
+		while ((i < netsize) || (j >= 0)) {
 
 			if (i < netsize) {
 				p = network[i];
@@ -470,4 +527,3 @@ NeuQuant = function() {
 	NeuQuant.apply(this, arguments);
 	return exports;
 };
-</=></=>

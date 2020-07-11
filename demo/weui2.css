@@ -1,5 +1,5 @@
 @font-face {
-  font-family: <yourwebfontname>;
+  font-family: <YourWebFontName>;
   src: <source> [<format>][,<source> [<format>]]*;
 /*  [font-weight: <weight>];
   [font-style: <style>];*/
@@ -139,4 +139,3 @@ body {
   color: rgba(0, 0, 0, 0.6);
   background-color: #DEDEDE;
 }
-</style></weight></format></format></yourwebfontname>
