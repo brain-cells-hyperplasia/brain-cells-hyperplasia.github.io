@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="微信反撤回聊天机器人基于 itchat 开发，在微信网页版上的反撤回工具，检测到有人撤回消息时，将被撤回的消息重发一次，支持文字、图片、非商店表情。https://github.com/brain-cells-hyperplasia/wx_bot离线贴纸表情制作器在网页内实现输入文字，生成 GIF 格式的纯文字表情，模拟离线杂志贴纸的效果。在微信内打开可以直接长按发送到会话。项目：https://">
+    <meta name="description" content="离线贴纸互怼器  	 	 	 	 	 	 	 	 	 	 	 		var msg_desc = &quot;可以愉快地互相伤害了。&quot;; 	  	  	 	 	 	 		 	 	 	   	生成贴纸  	清空   	 		长按图片发送给朋友 		 	  	 		 	  	 		获取文字尺寸">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Projects">
-<meta property="og:url" content="http://yoursite.com/Projects/index.html">
+<meta property="og:title" content="脑细胞增生">
+<meta property="og:url" content="http://yoursite.com/demo/stickerMaker2.html">
 <meta property="og:site_name" content="脑细胞增生">
-<meta property="og:description" content="微信反撤回聊天机器人基于 itchat 开发，在微信网页版上的反撤回工具，检测到有人撤回消息时，将被撤回的消息重发一次，支持文字、图片、非商店表情。https://github.com/brain-cells-hyperplasia/wx_bot离线贴纸表情制作器在网页内实现输入文字，生成 GIF 格式的纯文字表情，模拟离线杂志贴纸的效果。在微信内打开可以直接长按发送到会话。项目：https://">
+<meta property="og:description" content="离线贴纸互怼器  	 	 	 	 	 	 	 	 	 	 	 		var msg_desc = &quot;可以愉快地互相伤害了。&quot;; 	  	  	 	 	 	 		 	 	 	   	生成贴纸  	清空   	 		长按图片发送给朋友 		 	  	 		 	  	 		获取文字尺寸">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-07-11T08:00:16.547Z">
+<meta property="og:updated_time" content="2020-07-11T07:57:56.610Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Projects">
-<meta name="twitter:description" content="微信反撤回聊天机器人基于 itchat 开发，在微信网页版上的反撤回工具，检测到有人撤回消息时，将被撤回的消息重发一次，支持文字、图片、非商店表情。https://github.com/brain-cells-hyperplasia/wx_bot离线贴纸表情制作器在网页内实现输入文字，生成 GIF 格式的纯文字表情，模拟离线杂志贴纸的效果。在微信内打开可以直接长按发送到会话。项目：https://">
+<meta name="twitter:title" content="脑细胞增生">
+<meta name="twitter:description" content="离线贴纸互怼器  	 	 	 	 	 	 	 	 	 	 	 		var msg_desc = &quot;可以愉快地互相伤害了。&quot;; 	  	  	 	 	 	 		 	 	 	   	生成贴纸  	清空   	 		长按图片发送给朋友 		 	  	 		 	  	 		获取文字尺寸">
     
     
         
@@ -36,7 +36,7 @@
         
     
     <!-- title -->
-    <title>Projects</title>
+    <title>脑细胞增生</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- persian styles -->
@@ -89,8 +89,57 @@
 
   <div class="content" itemprop="articleBody">
       
-          <p><strong>微信反撤回聊天机器人</strong><br>基于 itchat 开发，在微信网页版上的反撤回工具，检测到有人撤回消息时，将被撤回的消息重发一次，支持文字、图片、非商店表情。<br><a href="https://github.com/brain-cells-hyperplasia/wx_bot" target="_blank" rel="noopener">https://github.com/brain-cells-hyperplasia/wx_bot</a><br><br><br><strong>离线贴纸表情制作器</strong><br>在网页内实现输入文字，生成 GIF 格式的纯文字表情，模拟离线杂志贴纸的效果。在微信内打开可以直接长按发送到会话。<br>项目：<a href="https://github.com/brain-cells-hyperplasia/offline-sticker-maker" target="_blank" rel="noopener">https://github.com/brain-cells-hyperplasia/offline-sticker-maker</a><br>点<a href="/demo/new_file.html">这里</a>体验</p>
+          <!DOCTYPE html>
+<html>
+	<title>离线贴纸互怼器</title>
 
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="weui2.css">
+	
+	<script src="stickerMaker2.js"></script>
+	<script src="LZWEncoder.js"></script>
+	<script src="NeuQuant.js"></script>
+	<script src="GIFEncoder.js"></script>
+	<script src="b64.js"></script>
+	
+	<script type="text/javascript">
+		var msg_desc = "可以愉快地互相伤害了。";
+	</script>
+
+	<body>
+
+	<br>
+	<br>
+	
+	<div align="center">
+		<input class="inputText" type="text" id="inputBox" placeholder="输入≤10个字" value="">
+	</div>
+	
+	<br>
+
+<div>
+	<div align="center" id="btn" onclick="generateSticker();" class="weui-btn weui-btn_default">生成贴纸</div>
+
+	<div align="center" id="clearBtn" onclick="cleanInput();" class="weui-btn weui-btn_default">清空</div>
+</div>
+
+	<div align="center" id="stickerImageBlock">
+		<p style="display: none" id="useInstruction">长按图片发送给朋友</p>
+		<img id="gifImg">
+	</div>
+
+	<div id="canvasDiv" align="center">
+		<canvas style="display: none" id="stickerWord"></canvas>
+	</div>
+
+	<div>
+		<p id="getTextSize">获取文字尺寸</p>
+	</div>
+
+	</body>
+
+</html>
         
   </div>
 </article>
