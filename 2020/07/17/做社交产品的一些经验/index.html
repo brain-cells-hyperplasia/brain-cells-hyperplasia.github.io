@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="社交产品是人类现实生活中社交行为的产品化，不能脱离人来做 微信人脉关系是分类的，不交叉 老年人、小孩不是不用、不会用手机，而是手机有很多功能他们不需要，另外有些功能做的让人难以理解 适老设计需要专门做，因为有观念代沟，而且很难学习跟上 硬核朋友圈的问题是把通讯录和朋友圈等同了，但不是所有人你都会愿意跟他们分享生活 人要跟有共鸣的人互动，但一潭死水又会很快没意思 二度人脉有需求，但只是一个功能，无法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="做社交产品的一些经验">
+<meta property="og:url" content="http://yoursite.com/2020/07/17/做社交产品的一些经验/index.html">
+<meta property="og:site_name" content="脑细胞增生">
+<meta property="og:description" content="社交产品是人类现实生活中社交行为的产品化，不能脱离人来做 微信人脉关系是分类的，不交叉 老年人、小孩不是不用、不会用手机，而是手机有很多功能他们不需要，另外有些功能做的让人难以理解 适老设计需要专门做，因为有观念代沟，而且很难学习跟上 硬核朋友圈的问题是把通讯录和朋友圈等同了，但不是所有人你都会愿意跟他们分享生活 人要跟有共鸣的人互动，但一潭死水又会很快没意思 二度人脉有需求，但只是一个功能，无法">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-07-20T13:26:01.579Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="做社交产品的一些经验">
+<meta name="twitter:description" content="社交产品是人类现实生活中社交行为的产品化，不能脱离人来做 微信人脉关系是分类的，不交叉 老年人、小孩不是不用、不会用手机，而是手机有很多功能他们不需要，另外有些功能做的让人难以理解 适老设计需要专门做，因为有观念代沟，而且很难学习跟上 硬核朋友圈的问题是把通讯录和朋友圈等同了，但不是所有人你都会愿意跟他们分享生活 人要跟有共鸣的人互动，但一潭死水又会很快没意思 二度人脉有需求，但只是一个功能，无法">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>做社交产品的一些经验</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives/">文章</a></li>
+         
+          <li><a href="/Projects/">项目</a></li>
+         
+          <li><a href="/About/">关于</a></li>
+         
+          <li><a href="/Search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/07/19/玩德州扑克的体会/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/07/05/市场实现效率，政府实现公平/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/07/17/做社交产品的一些经验/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/07/17/做社交产品的一些经验/&text=做社交产品的一些经验"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/07/17/做社交产品的一些经验/&title=做社交产品的一些经验"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/07/17/做社交产品的一些经验/&is_video=false&description=做社交产品的一些经验"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=做社交产品的一些经验&body=Check out this article: http://yoursite.com/2020/07/17/做社交产品的一些经验/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/07/17/做社交产品的一些经验/&title=做社交产品的一些经验"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/07/17/做社交产品的一些经验/&title=做社交产品的一些经验"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/07/17/做社交产品的一些经验/&title=做社交产品的一些经验"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/07/17/做社交产品的一些经验/&title=做社交产品的一些经验"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/07/17/做社交产品的一些经验/&name=做社交产品的一些经验&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/07/17/做社交产品的一些经验/&t=做社交产品的一些经验"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#微信"><span class="toc-number">1.</span> <span class="toc-text">微信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#硬核"><span class="toc-number">2.</span> <span class="toc-text">硬核</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#音波"><span class="toc-number">3.</span> <span class="toc-text">音波</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#酥糖"><span class="toc-number">4.</span> <span class="toc-text">酥糖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#做平台的一点点心得"><span class="toc-number">5.</span> <span class="toc-text">做平台的一点点心得</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        做社交产品的一些经验
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">脑细胞增生</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-07-17T12:33:15.000Z" itemprop="datePublished">2020-07-17</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>社交产品是人类现实生活中社交行为的产品化，不能脱离人来做</p>
+<h2 id="微信"><a href="#微信" class="headerlink" title="微信"></a>微信</h2><p>人脉关系是分类的，不交叉</p>
+<p>老年人、小孩不是不用、不会用手机，而是手机有很多功能他们不需要，另外有些功能做的让人难以理解</p>
+<p>适老设计需要专门做，因为有观念代沟，而且很难学习跟上</p>
+<h2 id="硬核"><a href="#硬核" class="headerlink" title="硬核"></a>硬核</h2><p>朋友圈的问题是把通讯录和朋友圈等同了，但不是所有人你都会愿意跟他们分享生活</p>
+<p>人要跟有共鸣的人互动，但一潭死水又会很快没意思</p>
+<p>二度人脉有需求，但只是一个功能，无法撑起一个业务</p>
+<p>已经有基础设施的时候，再做基础设施不现实，应该在基础设施之上做垂类服务。逆趋势做事风险很大</p>
+<p>硬核的教训是产品形态要从用户心智出发</p>
+<p>互动的人需要有多样性，才能提供足够的反馈，不在于人多</p>
+<h2 id="音波"><a href="#音波" class="headerlink" title="音波"></a>音波</h2><p>从需求出发<br>不创新<br>创业先学习一个现有的产品，理解是怎么运作的，单点打厚</p>
+<p>去中心化可以得到平权，社区化得到大V，这本身是矛盾的</p>
+<p>社区本来就是极少数人发布内容，绝大部分人消费，要尊重客观规律，人类社会就是中心化组织的，因为人类能够想象，能够产生统一的共识（所以我不认为完全去中心化的区块链设计是合理的）</p>
+<p>00后QQ群，年轻人的社交心理，只是需要一个由头把人聚在一起，然后再形成文化</p>
+<p>社区文化是内部的政治正确，融不进去就是融不进去，混群也是这样</p>
+<p>文化趋势大的值得产品化</p>
+<p>文化会衰亡，应该及时拥抱新文化</p>
+<h2 id="酥糖"><a href="#酥糖" class="headerlink" title="酥糖"></a>酥糖</h2><p>做一个有刚需的东西，付费的模式是最能衡量刚需的</p>
+<p>创业要先活下来，ROI模式才是绝大多数公司的第一优先级</p>
+<p>要去了解人群，微信没有具象的人群<br>了解他们的生活状态，他们的欲望</p>
+<p>切人群要用迎合人群的功能或内容</p>
+<p>DAU模式需要有东西把人先留下来，内容。留下来了才能互动</p>
+<p>给不同消费水平的用户匹配不同门槛的付费功能</p>
+<p>每个年龄段、阶层都有社交需求，只是形式不一样。社交都是要找到合得来的人，用合适的形式表达。比如伊对就降低了表达的门槛</p>
+<p>已经饱和的市场比较难做，应该多探索还没满足好需求的「五环外」人群</p>
+<h2 id="做平台的一点点心得"><a href="#做平台的一点点心得" class="headerlink" title="做平台的一点点心得"></a>做平台的一点点心得</h2><p>看重复购，那么就依赖体验，把控体验稳定本来就是平台的责任，不能没有准入门槛</p>
+<p>主播照片和真人要符合，不能虚假</p>
+<p>性价比高，付出的价格能不能获得符合预期的体验，价格其实也是效率，如果能绕过公会这样的中介，就能成为更高效的中间商，然后提高给主播的分成</p>
+<p>商品多样性（sku），支撑持续消费</p>
+<p>平台管控要守住自己的原则</p>
+<p>平台要守信用。虽然平台上的用户会跟平台规则对抗，但平台还是得有稳定的规则环境，规则不能说改就改，也不能溯及既往（现实生活中法治的原则）</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives/">文章</a></li>
+         
+          <li><a href="/Projects/">项目</a></li>
+         
+          <li><a href="/About/">关于</a></li>
+         
+          <li><a href="/Search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#微信"><span class="toc-number">1.</span> <span class="toc-text">微信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#硬核"><span class="toc-number">2.</span> <span class="toc-text">硬核</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#音波"><span class="toc-number">3.</span> <span class="toc-text">音波</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#酥糖"><span class="toc-number">4.</span> <span class="toc-text">酥糖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#做平台的一点点心得"><span class="toc-number">5.</span> <span class="toc-text">做平台的一点点心得</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/07/17/做社交产品的一些经验/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/07/17/做社交产品的一些经验/&text=做社交产品的一些经验"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/07/17/做社交产品的一些经验/&title=做社交产品的一些经验"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/07/17/做社交产品的一些经验/&is_video=false&description=做社交产品的一些经验"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=做社交产品的一些经验&body=Check out this article: http://yoursite.com/2020/07/17/做社交产品的一些经验/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/07/17/做社交产品的一些经验/&title=做社交产品的一些经验"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/07/17/做社交产品的一些经验/&title=做社交产品的一些经验"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/07/17/做社交产品的一些经验/&title=做社交产品的一些经验"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/07/17/做社交产品的一些经验/&title=做社交产品的一些经验"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/07/17/做社交产品的一些经验/&name=做社交产品的一些经验&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/07/17/做社交产品的一些经验/&t=做社交产品的一些经验"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    1992-2020
+    曾工
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives/">文章</a></li>
+         
+          <li><a href="/Projects/">项目</a></li>
+         
+          <li><a href="/About/">关于</a></li>
+         
+          <li><a href="/Search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
